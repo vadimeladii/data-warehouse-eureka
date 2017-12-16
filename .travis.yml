@@ -30,9 +30,9 @@ after_success:
 
    #DATAWAREHOUSEEUREKA
   - export DATAWAREHOUSEEUREKA=vadimeladii7/data-warehouse-eureka
-  - docker build -t DATAWAREHOUSEEUREKA:$COMMIT ./
-  - docker tag DATAWAREHOUSEEUREKA:$COMMIT DATAWAREHOUSEEUREKA:$TAG
-  - docker push DATAWAREHOUSEEUREKA
+  - docker build -t $DATAWAREHOUSEEUREKA:$COMMIT ./
+  - docker tag $DATAWAREHOUSEEUREKA:$COMMIT $DATAWAREHOUSEEUREKA:$TAG
+  - docker push $DATAWAREHOUSEEUREKA
 
 
 notifications:
