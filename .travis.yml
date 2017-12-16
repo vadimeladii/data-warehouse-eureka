@@ -9,8 +9,6 @@ language: java
 jdk:
   - oraclejdk8
 
-install: gradle -p webservice assemble
-
 os:
   - linux
 
@@ -20,7 +18,7 @@ env:
 
 branches:
   only:
-    - develop
+    - master
 
 after_success:
 
@@ -28,13 +26,13 @@ after_success:
   - docker login -u $D_USER -p $D_PASS
 
    #TAG
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "develop" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 
-   #DATAWAREHOUSE
-  - export DATAWAREHOUSE=vadimeladii7/data-warehouse
-  - docker build -t $DATAWAREHOUSE:$COMMIT ./webservice
-  - docker tag $DATAWAREHOUSE:$COMMIT $DATAWAREHOUSE:$TAG
-  - docker push $DATAWAREHOUSE
+   #DATAWAREHOUSEEUREKA
+  - export DATAWAREHOUSEEUREKA=vadimeladii7/data-warehouse-eureka
+  - docker build -t DATAWAREHOUSEEUREKA:$COMMIT ./
+  - docker tag DATAWAREHOUSEEUREKA:$COMMIT DATAWAREHOUSEEUREKA:$TAG
+  - docker push DATAWAREHOUSEEUREKA
 
 
 notifications:

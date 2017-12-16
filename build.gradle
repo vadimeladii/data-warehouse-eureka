@@ -22,6 +22,9 @@ repositories {
 	mavenCentral()
 }
 
+jar {
+	archiveName 'data-warehouse-eureka.jar'
+}
 
 ext {
 	springCloudVersion = 'Edgware.RELEASE'
